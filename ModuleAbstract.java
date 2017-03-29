@@ -35,6 +35,18 @@ public abstract class ModuleAbstract {
 		c2.setConnexion(c);
 	}
 
+	public void connectOutput(int idOutputPort, ModuleAbstract mInput, int idInputPort){
+		Connexion c = new Connexion(outputPorts[idOutputPort], mInput.getInputCommunicationPort(idInputPort));
+		outputPorts[idOutputPort].setConnexion(c);
+		mInput.getInputCommunicationPort(idInputPort).setConnexion(c);
+	}
+
+	public void connectInput(ModuleAbstract mOutput, int idOutputPort, int idInputPort){
+		Connexion c = new Connexion(mOutput.getOutputCommunicationPort(idOutputPort),inputPorts[idInputPort]);
+		mOutput.getOutputCommunicationPort(idOutputPort).setConnexion(c);
+		inputPorts[idInputPort].setConnexion(c);
+	}
+
 	public void setAndSendOutputPortValue(int idOutputPort, double sample){
 		CommunicationPort p = outputPorts[idOutputPort];
 		p.setValue(sample);

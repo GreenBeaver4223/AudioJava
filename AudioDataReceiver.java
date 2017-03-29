@@ -3,8 +3,8 @@ import phelmaaudio.*;
 public class AudioDataReceiver extends ModuleAbstract{
   private AudioData a;
 
-  public AudioDataReceiver(){
-    super("AudioDataReceiver", 1, 1);
+  public AudioDataReceiver(String name){
+    super(name, 1, 1);
   }
 
   @Override
