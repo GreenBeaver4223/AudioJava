@@ -23,9 +23,16 @@ public abstract class ModuleAbstract {
 		return outputPorts[id];
 	}
 
-	public static Connexion connect(ModuleAbstract mOutput, int idOutputPort, ModuleAbstract mInput, int idInputPort){
+	public static void connect(ModuleAbstract mOutput, int idOutputPort, ModuleAbstract mInput, int idInputPort){
 		Connexion c = new Connexion(mOutput.getOutputCommunicationPort(idOutputPort), mInput.getInputCommunicationPort(idInputPort));
-		return c;
+		mOutput.getOutputCommunicationPort(idOutputPort).setConnexion(c);
+		mInput.getInputCommunicationPort(idInputPort).setConnexion(c);
+	}
+
+	public static void connect(CommunicationPort c1, CommunicationPort c2){
+		Connexion c = new Connexion(c1, c2);
+		c1.setConnexion(c);
+		c2.setConnexion(c);
 	}
 
 	public void setAndSendOutputPortValue(int idOutputPort, double sample){
