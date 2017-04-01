@@ -14,9 +14,9 @@ public class AudioDataReceiver extends ModuleAbstract{
     setAndSendOutputPortValue(0, e);
 	}
 
-  void saveAudioDataToWavFile(String audioFileName){
+  /**void saveAudioDataToWavFile(String audioFileName){
     a.saveAudioDataToWavFileNormalized(audioFileName);
-  }
+  }*/
 
   void displayAudioDataWaveform(){
     a.display();
