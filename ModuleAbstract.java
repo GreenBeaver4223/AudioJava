@@ -33,31 +33,35 @@ public abstract class ModuleAbstract {
 		return outputPorts[id];
 	}
 
-	public static void connect(ModuleAbstract mOutput, int idOutputPort, ModuleAbstract mInput, int idInputPort){
+	public static Connexion connect(ModuleAbstract mOutput, int idOutputPort, ModuleAbstract mInput, int idInputPort){
 		Connexion c = new Connexion(mOutput.getOutputCommunicationPort(idOutputPort), mInput.getInputCommunicationPort(idInputPort));
 		mOutput.getOutputCommunicationPort(idOutputPort).setConnexion(c);
 		mInput.getInputCommunicationPort(idInputPort).setConnexion(c);
+		return c;
 	}
 
-	public static void connect(CommunicationPort c1, CommunicationPort c2){
+	public static Connexion connect(CommunicationPort c1, CommunicationPort c2){
 		Connexion c = new Connexion(c1, c2);
         if(c1 == null || c2 == null){
             throw new IllegalArgumentException("Null Port");
         }
 		c1.setConnexion(c);
 		c2.setConnexion(c);
+		return c;
 	}
 
-	public void connectOutput(int idOutputPort, ModuleAbstract mInput, int idInputPort){
+	public Connexion connectOutput(int idOutputPort, ModuleAbstract mInput, int idInputPort){
 		Connexion c = new Connexion(outputPorts[idOutputPort], mInput.getInputCommunicationPort(idInputPort));
 		outputPorts[idOutputPort].setConnexion(c);
 		mInput.getInputCommunicationPort(idInputPort).setConnexion(c);
+		return c;
 	}
 
-	public void connectInput(ModuleAbstract mOutput, int idOutputPort, int idInputPort){
+	public Connexion connectInput(ModuleAbstract mOutput, int idOutputPort, int idInputPort){
 		Connexion c = new Connexion(mOutput.getOutputCommunicationPort(idOutputPort),inputPorts[idInputPort]);
 		mOutput.getOutputCommunicationPort(idOutputPort).setConnexion(c);
 		inputPorts[idInputPort].setConnexion(c);
+		return c;
 	}
 
 	public void setAndSendOutputPortValue(int idOutputPort, double sample){
