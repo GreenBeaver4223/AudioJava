@@ -41,9 +41,9 @@ public abstract class ModuleAbstract {
 
 	public static void connect(CommunicationPort c1, CommunicationPort c2){
 		Connexion c = new Connexion(c1, c2);
-        if(c1 == null){
-            throw new IllegalArgumentException("null");
-           }
+        if(c1 == null || c2 == null){
+            throw new IllegalArgumentException("Null Port");
+        }
 		c1.setConnexion(c);
 		c2.setConnexion(c);
 	}
@@ -66,9 +66,9 @@ public abstract class ModuleAbstract {
 		if(p.isConnected()){
 			p.getConnexion().communicate();
 		}
-		else{
-			throw new IllegalArgumentException("Unable to communicate : port not connected");
-		}
+	//	else{
+	//		throw new IllegalArgumentException("Unable to communicate : port not connected");
+	//	}
 	}
 
 	public double getInputPortValue(int idInputPort){

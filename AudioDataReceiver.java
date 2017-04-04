@@ -12,7 +12,7 @@ public class AudioDataReceiver extends ModuleAbstract{
   public void exec(){
     double e = getInputPortValue(0);
 		a.addSample(e);
-        setOutputPortValue(0, e);
+        setAndSendOutputPortValue(0, e);
 	}
 
   /**void saveAudioDataToWavFile(String audioFileName){
