@@ -19,10 +19,10 @@ public class Patch{
   public ModuleAbstract trouverModule(String nom){
 		Iterator<ModuleAbstract> it = listeModules.iterator();
 		while(it.hasNext()){
-			ModuleAbstract a = it.next();
-			if(a.getName() == nom){
-				return a;
-			}
+		    ModuleAbstract a = it.next();
+        if(a.getName() == nom){
+          return a;
+        }
 		}
 		throw new IllegalArgumentException("Pas de Module avec ce nom");
 	}
@@ -41,6 +41,20 @@ public class Patch{
   }
 
   public void exec(){
+    Iterator<ModuleAbstract> it = listeModules.iterator();
+    while(it.hasNext()){
+		    ModuleAbstract a = it.next();
+        a.exec();
+    }
+  }
 
+  public void exec(int nbStep){
+    for(int i = 0 ; i<nbStep ; i++){
+      Iterator<ModuleAbstract> it = listeModules.iterator();
+      while(it.hasNext()){
+  		    ModuleAbstract a = it.next();
+          a.exec();
+      }
+    }
   }
 }
