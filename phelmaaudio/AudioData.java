@@ -5,8 +5,8 @@ import javax.swing.JFrame;
 import java.io.*;				// pour les IOEXception
 
 
-/** 
- * Conteneneur de signal audio échantillonné 
+/**
+ * Conteneneur de signal audio échantillonné
  * (<=> de signal audio) à 44100 Hz.
  * @author N castagné
  */
@@ -84,7 +84,7 @@ public class AudioData {
 
 
 
-	/** Retourne la valeur de l'échantillon de valeur absolue la plus grande. 
+	/** Retourne la valeur de l'échantillon de valeur absolue la plus grande.
 	 * Utile pour normalisation du signal entre -1.0 et 1.0
 	 * */
 	public double getMaxValAbs(){
@@ -120,7 +120,7 @@ public class AudioData {
 	}
 
 
-	/** Joue le signal : envoie le signal 
+	/** Joue le signal : envoie le signal
 	 *  sur la carte son de la machine, à la fréquence de 44100 echantillons / seconde.
 	 *  EXception RuntimeException si problème.
 	 */
@@ -129,7 +129,7 @@ public class AudioData {
 		player.start(); // lance la lecture audio
 	}
 
-	/** Créee une fenêtre et affiche la forme d'onde du signal 
+	/** Créee une fenêtre et affiche la forme d'onde du signal
 	 * @param normalize si true : normalise entre -1 et 1 avant affichage
 	 * */
 	public void display() {
@@ -137,9 +137,9 @@ public class AudioData {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setVisible(true); // affiche la fenêtre
 	}
-	
 
-	/** Charge le signal du fichier audio au format .wav nommé fileName. 
+
+	/** Charge le signal du fichier audio au format .wav nommé fileName.
 	 * Si le fichier est multicanal, toutes les voies seront mixées en une seule.
 	 * Si le fichier n'est pas à 44100 hz, une exception WavFileException est levée.
 	 * @param fileName le nom du fichier
@@ -183,7 +183,7 @@ public class AudioData {
 	}
 
 
-	/** Enregistre le signal dans un fichier audio au format .wav mono nommé fileName. 
+	/** Enregistre le signal dans un fichier audio au format .wav mono nommé fileName.
 	 * La fréquence d'échantillonnage du fichier sera 44100 Hz.
 	 * Le signal est normalisé avant sauvegarde @see normalize()
 	 * @param fileName le nom du fichier
@@ -203,7 +203,7 @@ public class AudioData {
 		}
 		WavFile wavFile = WavFile.newWavFile(new File(fileName), 1, data.size(), 16, SAMPLERATE);
 		wavFile.writeFrames(buffer, data.size());
-		wavFile.close(); 
+		wavFile.close();
 	}
 
 }
