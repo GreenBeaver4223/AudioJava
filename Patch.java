@@ -1,4 +1,5 @@
 import java.util.LinkedList;
+import java.util.Iterator;
 
 public class Patch{
   private String nom;
@@ -15,11 +16,11 @@ public class Patch{
     listeModules.add(m);
   }
 
-  public Animal trouverModule(String nom){
+  public ModuleAbstract trouverModule(String nom){
 		Iterator<ModuleAbstract> it = listeModules.iterator();
 		while(it.hasNext()){
 			ModuleAbstract a = it.next();
-			if(a.getNom() == nom){
+			if(a.getName() == nom){
 				return a;
 			}
 		}
@@ -27,6 +28,8 @@ public class Patch{
 	}
 
   public void connect(String nameOfOutputModule, int idOutputPort, String nameOfInputModule, int idInputPort){
+    ModuleAbstract a;
+    ModuleAbstract b;
     try{
 			a = trouverModule(nameOfOutputModule);
       b = trouverModule(nameOfInputModule);
@@ -38,6 +41,6 @@ public class Patch{
   }
 
   public void exec(){
-    
+
   }
 }
