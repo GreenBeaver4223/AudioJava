@@ -17,17 +17,17 @@ public class CommunicationPort {
 	}
 
 	public boolean isConnected(){
-		if(connection == null){
+		if(this.connection == null){
 			return false;
 		}
 		return true;
 	}
 
 	public void setConnexion(Connexion c){
-		connection = c;
+		this.connection = c;
 	}
 
 	public Connexion getConnexion(){
-		return connection;
+		return this.connection;
 	}
 }

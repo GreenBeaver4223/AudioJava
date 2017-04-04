@@ -8,7 +8,17 @@ public abstract class ModuleAbstract {
 	public ModuleAbstract(String nom, int nbInputPort, int nbOutputPort){
 		this.nom = nom;
 		inputPorts = new CommunicationPort[nbInputPort];
+        if(inputPorts != null){
+            for(int i = 0; i < inputPorts.length; i++){
+                inputPorts[i] = new CommunicationPort(i);
+            }
+        }
 		outputPorts = new CommunicationPort[nbOutputPort];
+        if(outputPorts != null){
+            for(int i = 0; i < outputPorts.length; i++){
+                outputPorts[i] = new CommunicationPort(i);
+            }
+        }
 	}
 
 	public String getName(){
@@ -31,6 +41,9 @@ public abstract class ModuleAbstract {
 
 	public static void connect(CommunicationPort c1, CommunicationPort c2){
 		Connexion c = new Connexion(c1, c2);
+        if(c1 == null){
+            throw new IllegalArgumentException("null");
+           }
 		c1.setConnexion(c);
 		c2.setConnexion(c);
 	}
@@ -64,6 +77,14 @@ public abstract class ModuleAbstract {
 
 	public void setInputPortValue(int idInputPort, double s){
 		inputPorts[idInputPort].setValue(s);
+	}
+
+	public double getOutputPortValue(int idOutputPort){
+		return outputPorts[idOutputPort].getValue();
+	}
+
+	public void setOutputPortValue(int idOutputPort, double s){
+		outputPorts[idOutputPort].setValue(s);
 	}
 
 	public abstract void exec();

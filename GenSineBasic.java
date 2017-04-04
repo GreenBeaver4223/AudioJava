@@ -6,7 +6,7 @@ public class GenSineBasic extends ModuleAbstract{
 
 	public GenSineBasic(String name, double frequence, double amp){
 		super(name, 0, 1);
-		freq = frequence;
+		this.freq = frequence;
 		this.amp = amp;
 	}
 

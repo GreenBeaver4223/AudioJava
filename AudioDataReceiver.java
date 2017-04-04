@@ -5,13 +5,14 @@ public class AudioDataReceiver extends ModuleAbstract{
 
   public AudioDataReceiver(String name){
     super(name, 1, 1);
+    this.a = new AudioData();
   }
 
   @Override
   public void exec(){
     double e = getInputPortValue(0);
 		a.addSample(e);
-    setAndSendOutputPortValue(0, e);
+        setOutputPortValue(0, e);
 	}
 
   /**void saveAudioDataToWavFile(String audioFileName){
