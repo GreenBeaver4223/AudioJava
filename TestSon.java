@@ -10,7 +10,7 @@ public class TestSon{
      // o.displayAudioDataWaveform();
       /**o.saveAudioDataToWavFile("test1.wav");*/
      // o.playAudioData();
-    } 
+    }
     o.displayAudioDataWaveform();
     o.playAudioData();
   }
