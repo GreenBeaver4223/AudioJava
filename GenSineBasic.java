@@ -16,4 +16,8 @@ public class GenSineBasic extends ModuleAbstract{
 		setAndSendOutputPortValue(0, e);
 		n+=1;
 	}
+
+    public void reset(){
+           setOutputPortValue(0,0);
+     }
 }

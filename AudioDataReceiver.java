@@ -27,4 +27,10 @@ public class AudioDataReceiver extends ModuleAbstract{
     a.play();
   }
 
+  @Override
+  public void reset(){
+      if(a != null) a.reset();
+      setInputPortValue(0,0);
+      setOutputPortValue(0,0);
+  }
 }

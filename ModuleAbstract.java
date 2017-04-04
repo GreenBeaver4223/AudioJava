@@ -32,6 +32,27 @@ public abstract class ModuleAbstract {
 	public CommunicationPort getOutputCommunicationPort(int id){
 		return outputPorts[id];
 	}
+    
+    public int getNbInputPorts(){
+        if(inputPorts != null) return inputPorts.length;
+        return 0;
+    }
+    
+    public int getNbOutputPorts(){
+        if(outputPorts != null) return outputPorts.length;
+        return 0;
+    }
+
+    public boolean isConnectedInputPort(int inputPortId){
+        if(this.inputPorts[inputPortId] != null) return this.inputPorts[inputPortId].isConnected();
+        return false;
+    }
+
+
+    public boolean isConnectedOutputPort(int outputPortId){
+        if(this.outputPorts[outputPortId] != null) return this.outputPorts[outputPortId].isConnected();
+        return false;
+    }
 
 	public static void connect(ModuleAbstract mOutput, int idOutputPort, ModuleAbstract mInput, int idInputPort){
 		Connexion c = new Connexion(mOutput.getOutputCommunicationPort(idOutputPort), mInput.getInputCommunicationPort(idInputPort));
@@ -88,4 +109,6 @@ public abstract class ModuleAbstract {
 	}
 
 	public abstract void exec();
+
+    public abstract void reset();
 }
