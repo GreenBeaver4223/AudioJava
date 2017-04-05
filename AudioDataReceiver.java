@@ -1,4 +1,5 @@
 import phelmaaudio.*;
+import java.io.IOException;
 
 public class AudioDataReceiver extends ModuleAbstract{
   private AudioData a;
@@ -15,9 +16,9 @@ public class AudioDataReceiver extends ModuleAbstract{
         setAndSendOutputPortValue(0, e);
 	}
 
-  /**void saveAudioDataToWavFile(String audioFileName) throws IOException, WavFileException{
+  void saveAudioDataToWavFile(String audioFileName) throws IOException, WavFileException{
     a.saveAudioDataToWavFileNormalized(audioFileName);
-  }*/
+  }
 
   void displayAudioDataWaveform(){
     a.display();
