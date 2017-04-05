@@ -24,7 +24,10 @@ public class TestSon{
     p.exec(3*44100);
     output1.displayAudioDataWaveform();
     output1.playAudioData();
-    //output1.saveAudioDataToWavFile("test1.wav");
+    try{
+      output1.saveAudioDataToWavFile("test1.wav");
+    } catch(IOException e){}
+    catch(WavFileException e){}
     //output2.displayAudioDataWaveform();
     //output2.playAudioData();
   }
