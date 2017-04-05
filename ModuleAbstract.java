@@ -1,3 +1,5 @@
+import java.util.List;
+import java.util.LinkedList;
 
 public abstract class ModuleAbstract {
 	private static int SAMPLE_FREQ = 44100;
@@ -114,7 +116,27 @@ public abstract class ModuleAbstract {
 
 	public abstract void exec();
 
-  public abstract void reset(){
+	List<CommunicationPort> getUnconnectedInputPorts(){
+		List<CommunicationPort> list = new LinkedList<CommunicationPort>();
+		if(inputPorts != null){
+				for(int i = 0; i < inputPorts.length; i++){
+						if(!(inputPorts[i].isConnected())) list.add(inputPorts[i]);
+				}
+		}
+		return list;
+	}
+
+	List<CommunicationPort> getUnconnectedOutputPorts(){
+		List<CommunicationPort> list = new LinkedList<CommunicationPort>();
+		if(outputPorts != null){
+				for(int i = 0; i < outputPorts.length; i++){
+						if(!(outputPorts[i].isConnected())) list.add(outputPorts[i]);
+				}
+		}
+		return list;
+	}
+
+  public void reset(){
 		if(inputPorts != null){
 				for(int i = 0; i < inputPorts.length; i++){
 						setInputPortValue(i,0);
