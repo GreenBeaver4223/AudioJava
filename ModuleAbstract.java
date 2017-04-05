@@ -32,12 +32,12 @@ public abstract class ModuleAbstract {
 	public CommunicationPort getOutputCommunicationPort(int id){
 		return outputPorts[id];
 	}
-    
+
     public int getNbInputPorts(){
         if(inputPorts != null) return inputPorts.length;
         return 0;
     }
-    
+
     public int getNbOutputPorts(){
         if(outputPorts != null) return outputPorts.length;
         return 0;
@@ -114,5 +114,16 @@ public abstract class ModuleAbstract {
 
 	public abstract void exec();
 
-    public abstract void reset();
+  public abstract void reset(){
+		if(inputPorts != null){
+				for(int i = 0; i < inputPorts.length; i++){
+						setInputPortValue(i,0);
+				}
+		}
+		if(outputPorts != null){
+				for(int i = 0; i < outputPorts.length; i++){
+						setOutputPortValue(i,0);
+				}
+		}
+	}
 }

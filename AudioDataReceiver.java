@@ -15,9 +15,9 @@ public class AudioDataReceiver extends ModuleAbstract{
         setAndSendOutputPortValue(0, e);
 	}
 
-  /**void saveAudioDataToWavFile(String audioFileName){
+  void saveAudioDataToWavFile(String audioFileName) throws IOException, WavFileException{
     a.saveAudioDataToWavFileNormalized(audioFileName);
-  }*/
+  }
 
   void displayAudioDataWaveform(){
     a.display();
@@ -30,7 +30,7 @@ public class AudioDataReceiver extends ModuleAbstract{
   @Override
   public void reset(){
       if(a != null) a.reset();
-      setInputPortValue(0,0);
-      setOutputPortValue(0,0);
+      super.reset();
   }
+
 }
