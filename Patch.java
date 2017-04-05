@@ -69,4 +69,13 @@ public class Patch{
       }
     }
   }
+
+  public void reset(){
+    Iterator<ModuleAbstract> it = listeModules.iterator();
+		while(it.hasNext()){
+		    ModuleAbstract a = it.next();
+        a.reset();
+		}
+  }
+  
 }
