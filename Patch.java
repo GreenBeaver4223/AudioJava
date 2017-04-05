@@ -77,5 +77,24 @@ public class Patch{
         a.reset();
 		}
   }
-  
+
+  public LinkedList<CommunicationPort> getUnconnectedInputPorts(){
+    CommunicationPort list = new LinkedList<CommunicationPort>();
+    Iterator<ModuleAbstract> it = listeModules.iterator();
+		while(it.hasNext()){
+		    ModuleAbstract a = it.next();
+        list.addAll(a.getUnconnectedInputPorts)
+		}
+    return list;
+  }
+
+  public LinkedList<CommunicationPort> getUnconnectedOutputPorts(){
+    CommunicationPort list = new LinkedList<CommunicationPort>();
+    Iterator<ModuleAbstract> it = listeModules.iterator();
+		while(it.hasNext()){
+		    ModuleAbstract a = it.next();
+        list.addAll(a.getUnconnectedOutputPorts)
+		}
+    return list;
+  }
 }
