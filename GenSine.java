@@ -5,10 +5,11 @@ public class GenSine extends ModuleAbstract{
 		super(name, 2, 1);
 	}
 
-	private double calculEchantillon(){
+	public double calculEchantillon(){
 		double freq = getInputPortValue(0);
-  	double amp = getInputPortValue(1);
+  	    double amp = getInputPortValue(1);
 		double e = amp*Math.sin(2*Math.PI*freq*n/44100.0);
+        return e;
 	}
 
 	@Override

@@ -4,7 +4,7 @@ public class GenSquare extends GenSine{
   }
 
   @Override
-  private double calculEchantillon(){
+  public double calculEchantillon(){
     double e = super.calculEchantillon();
 		return Math.signum(e)*getInputPortValue(1);
 	}
