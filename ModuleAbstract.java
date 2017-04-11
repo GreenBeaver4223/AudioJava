@@ -2,7 +2,7 @@ import java.util.List;
 import java.util.LinkedList;
 
 public abstract class ModuleAbstract {
-	private static int SAMPLE_FREQ = 44100;
+	public final static int SAMPLE_FREQ = 44100;
 	private String nom;
 	private CommunicationPort[] inputPorts;
 	private CommunicationPort[] outputPorts;
