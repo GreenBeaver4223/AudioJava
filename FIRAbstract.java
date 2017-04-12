@@ -2,13 +2,18 @@ public abstract class FIRAbstract extends ModuleAbstract{
 	protected double[] coeffArray;
 	protected double[] inputSamples;
 	private int head = 0;
-	
+
+	public FIRAbstract(String name, int nbInputPort, int nbOutputPort){
+		super(name,nbInputPort,nbOutputPort);
+		this.inputSamples = new double[this.coeffArray.length];
+	}
+
 	public FIRAbstract(String name,double[] coeffArray){
 		super(name,1,1);
 		this.coeffArray = coeffArray.clone();
 		this.inputSamples = new double[this.coeffArray.length];
 	}
-	
+
 	public int getFiltOrder(){
 		if(this.coeffArray != null){
 			return this.coeffArray.length-1;
